@@ -13,13 +13,13 @@ class Category extends React.Component{
         dataObject:[],
     }
     async componentDidMount(){
-        const name = this.props.navigation.state.routeName;
-        const data = await api.getDataByCategory(name)
-        // alert(data);
+        // const name = this.props.navigation.state.routeName;
+        // const data = await api.getDataByCategory(name)
+        // // alert(data);
        
-        this.setState({
-            dataObject:data
-        });
+        // this.setState({
+        //     dataObject:data
+        // });
         // console.log(this.state.dataObject);
     }
     render(){
@@ -27,7 +27,7 @@ class Category extends React.Component{
             <ScrollView
                 style={{flex:1,marginTop:10,}}
                 >
-                  <Heading>
+                  {/* <Heading>
                             {this.props.navigation.state.routeName.charAt(0).toUpperCase() + this.props.navigation.state.routeName.slice(1)}
                 </Heading>
                  <FlatList
@@ -84,8 +84,8 @@ class Category extends React.Component{
                         
                         // </Container>
                        
-                    )} 
-                />
+                    )}  */}
+                {/* /> */}
             </ScrollView>
                
             )

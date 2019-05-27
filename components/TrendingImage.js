@@ -92,4 +92,3 @@ const Text = styled.Text `
 
 const BackgroundHolder = styled.View `
 `;
-
