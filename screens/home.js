@@ -55,6 +55,7 @@ class Home extends Component {
 
         <ScrollView bounces={true} bouncesZoom={true} showsVerticalScrollIndicator={false}>
         <AnimatedContainer >
+        {/* <Text>sdsdsdd</Text> */}
             <TrendingItem/>
             <LatestNewsSection />
         </AnimatedContainer>
@@ -76,3 +77,7 @@ const SplashScreenContainer = styled.View `
   width:100%;
   height:100%;
 `;
+
+// const Text = styled.Text `
+  
+// `;

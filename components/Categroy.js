@@ -1,41 +1,61 @@
 import React from 'react';
 import styled from 'styled-components';
 import LatestNews from './Latest.news';
-import { ScrollView, FlatList } from 'react-native-gesture-handler';
+import { ScrollView, FlatList,TouchableOpacity } from 'react-native-gesture-handler';
 import api from '../function/api';
 import Icon from 'react-native-vector-icons/Ionicons'
 import AntIcon from 'react-native-vector-icons/AntDesign'
+import { NavigationEvents } from 'react-navigation';
+import Loader from './Loader';
 // import console = require('console');
 
 
 class Category extends React.Component{
-    state = {
-        dataObject:[],
+    state={
+        dataObject:null,
+        loading:false,
     }
-    async componentDidMount(){
-        // const name = this.props.navigation.state.routeName;
-        // const data = await api.getDataByCategory(name)
-        // // alert(data);
-       
-        // this.setState({
-        //     dataObject:data
-        // });
-        // console.log(this.state.dataObject);
+    showLoader = () =>{
+        if(this.state.dataObject==null){
+            this.setState({
+                loading: true
+              });
+            const apiHost = 'http://beta.economistdubai.com'
+            const keyword = this.props.navigation.state.routeName
+            // console.log(apiHost + '/api/index.php/Welcome/getDataByCategory?keyword=travel&random='+Math.random());
+            response =   fetch(apiHost + '/api/index.php/Welcome/getDataByCategory?keyword='+keyword+'&random='+Math.random()).
+                then(res => res.json()).
+                then(dataObject => {
+                    this.setState({ dataObject }),
+                    this.setState({
+                        loading:false
+                    })
+    
+                });
+        }
+        
     }
     render(){
+        console.log(this.state.dataObject);
+        
         return(
             <ScrollView
                 style={{flex:1,marginTop:10,}}
                 >
-                  {/* <Heading>
+                <Loader loading={this.state.loading} />
+                <NavigationEvents
+                    onWillFocus={payload => this.showLoader()}
+                />
+    
+                  <Heading>
                             {this.props.navigation.state.routeName.charAt(0).toUpperCase() + this.props.navigation.state.routeName.slice(1)}
                 </Heading>
                  <FlatList
                     data={this.state.dataObject}
-                    style={{width:"100%",height:"100%",marginTop:50}}
+                    style={{width:"100%",height:"100%",marginTop:50,flex:1}}
                     renderItem={({ item }) => (
                         // <Container>
-                      
+                       
                              <Content>
                             <Section>
                                 <TitleContainer>
@@ -46,12 +66,16 @@ class Category extends React.Component{
                                     </Description>
                                 </TitleContainer>
                                 <ActionContainer>
+                                <TouchableOpacity 
+                                    onPress={() => this.props.navigation.navigate('detail',{'id':item.ID,'index':item.ID})}
+                                    key={item.ID} style={{flex:1}} >
                                         <Button>
                                             <ButtonText>
                                                 Open
                                             </ButtonText>
                                             
                                         </Button>
+                                    </TouchableOpacity>
                                         
                                         <IconHolderComment>
                                             <Icon name="ios-chatboxes" size={18}/>
@@ -81,11 +105,10 @@ class Category extends React.Component{
                                 </ImageContainer>
                                 <Separator/>
                         </Content>
-                        
                         // </Container>
                        
-                    )}  */}
-                {/* /> */}
+                    )}  
+                 /> 
             </ScrollView>
                
             )

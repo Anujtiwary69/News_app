@@ -5,6 +5,7 @@ import TrendingImage from './TrendingImage';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import {connect} from 'react-redux'
 import {withNavigation} from 'react-navigation';
+// import console = require('console');
 
 
 
@@ -16,7 +17,11 @@ class  TrendingItem extends React.Component{
     ChangeTheScreen = (news,index) =>{
         this.props.navigation.navigate('detail',{'id':news,'index':index})
     }
+    componentDidMount(){
+        // alert(1);
+    }
     render(){
+        console.log(this.props.action);
         return(
             <Container>
                 <Title>
@@ -58,6 +63,7 @@ const Container = styled.View `
     padding-top:20px;
     padding-left:20px;
     padding-bottom:20px;
+    ${'' /* flex:1; */}
 `;
 const Title = styled.Text `
     font-size:18;

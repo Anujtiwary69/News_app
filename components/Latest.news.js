@@ -7,6 +7,7 @@ import {withNavigation} from 'react-navigation';
 import {connect} from 'react-redux';
 import Modal from "react-native-modal";
 import Loader from './Loader';
+// import console = require('console');
 
 function mapStateToProps(state){
     return {action : state.allData };
@@ -26,7 +27,7 @@ class  LatestNewsSection extends React.Component{
         })
     }
     render(){
-      
+        console.log(this.props.action._55)
         return(
             <Container>
                   <Loader loading={this.state.loading}/>

@@ -4,7 +4,7 @@ export default{
         try{
             const response =  await fetch(apiHost + '/api/?id='+Math.random());
             const responseJson = await response.json();
-            return responseJson._55;
+            return responseJson;
         } catch(error){
             console.error(error);
         }

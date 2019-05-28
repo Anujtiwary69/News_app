@@ -13,7 +13,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 // const {isFocused} = this.props.navigation;
 const HomeNavigator = createStackNavigator({
-    // home:Home,
+    home:Home,
     detail:NewsDetails,
    
     TabNavigator:TabNavigator

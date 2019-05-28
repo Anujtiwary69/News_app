@@ -90,9 +90,9 @@ class App extends Component {
                     <SafeAreaView style={{ flex: 1, backgroundColor: '#ffffff',marginBottom:-50 }}>
                       <StatusBar barStyle="light-content"/>
                       <ContainerHome>
-                      {/* <Loader loading={this.state.loading}/> */}
+                     
                         <AppNavigator/>
-                        {/* <TabNavigator/> */}
+                       
                       </ContainerHome>
                     
                     </SafeAreaView>
