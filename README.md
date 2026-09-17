@@ -22,8 +22,7 @@ development tools has not yet been verified.
 
 ## Screenshots
 
-[Add screenshots of the home screen, category selection,
-and article view here.]
+![Economist Dubai app concept](assets/exec-493d2b4d-19ea-4711-8c1e-f91eec2b4ea5.png)
 
 ## Tech stack
 
