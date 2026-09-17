@@ -21,6 +21,7 @@ const initialState = {
   text:"",
   allData:GettheData()
 }
+//check for welcome
 
 const reducer =(state = initialState,action) =>{
 
